@@ -1,0 +1,104 @@
+*{
+  box-sizing: border-box;
+  /* outline: 1px solid yellow; */
+}
+
+body{
+  background-color: black;
+  color: white;
+}
+
+.header-main {
+  text-align: center;
+}
+
+h1.title.title-main {
+  color: red;
+  font-family: 'Dosis', sans-serif;
+}
+
+nav.nav-main {
+  background-color: rgba(30,30,30,0.5);
+  padding: 7px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  transition: all 500ms;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li.element {
+  text-transform: uppercase;
+  color: white;
+  transition: all 500ms;
+}
+
+li.element a:hover {
+  color: #de4000;
+}
+
+.element:hover {
+  color: #de4000;
+}
+
+ul.nav-list li.element:last-of-type {
+  margin-right: 30px;
+}
+
+.element-hide {
+  cursor: pointer;
+  width: 18%;
+}
+
+li.element.under-list {
+  position: relative;
+}
+
+.hide {
+  transform: scale(0);
+}
+
+
+ul.second-list {
+  position: absolute;
+  top: 40px;
+  padding: 10px;
+  z-index: 50;
+  background-color: rgb(15, 15, 15);
+  line-height: 2;
+}
+
+ul.second-list.contact {
+    line-height: 0;
+    width: 70%;
+}
+
+ul.user {
+  left: -24px;
+}
+
+ul.contact {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.footer-main{
+  text-align: center;
+  padding: 20px;
+  background-color: #0f0f0f;
+  margin-top: 20px;
+}

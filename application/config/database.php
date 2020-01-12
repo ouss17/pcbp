@@ -4,7 +4,7 @@
  * Database configuration settings used by PDO.
  */
 
-$config['dsn']      = 'mysql:host=localhost;dbname=pcbp';
+$config['dsn']      = 'mysql:host=localhost;dbname=pc_buying_pro';
 $config['password'] = '';
 $config['user']     = 'root';
 

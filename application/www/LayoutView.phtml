@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>PC buying Pro</title>
-    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
-    <!-- Feuilles de styles de l'application -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>PC Buying Pro</title>
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 
-    <!-- Librairie jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
-
-    <!-- JavaScript de l'application -->
-    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+  <!-- JavaScript de l'application -->
+  <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
 </head>
 <body>
-<header class="header-main">
-<!-- <img class="header-logo" src="<?= $wwwUrl ?>/images/logo/logo_pc_buy.jpg" alt="logo"> -->
-</header>
-<!-- En-tête commune -->
-<main>
-    <!-- Affichage du template lié à la vue -->
+  <header class="header-main">
+    <img class="header-logo" src="<?= $wwwUrl ?>/images/logo/logo_pc_buy.jpg" alt="logo">
+    <h1 class="title title-main">PC Buying Pro</h1>
+  </header>
+  <nav class="nav-main">
+    <ul class="nav-list">
+      <li class="element"> <a href="<?= $requestUrl ?>/">Accueil</a> </li>
+      <div class="element-hide">
+        <li class="element under-list products">Nos produits<i class="fas fa-sort-down"></i>
+          <ul class="second-list hide product">
+            <li class="element"> <a href="<?= $requestUrl ?>/products/search?result=whole">PC complets</a> </li>
+            <li class="element"> <a href="<?= $requestUrl ?>/products/search?result=single">Nos pièces détachées</a> </li>
+          </ul>
+        </li>
+      </div>
+      <div class="element-hide">
+
+
+        <li class="element under-list users"><i class="fas fa-user"></i> <i class="fas fa-sort-down"></i>
+          <ul class="second-list hide user">
+            <li class="element"> <a href="<?= $requestUrl ?>/products/login">Se connecter <i class="fas fa-sign-in-alt"></i></a> </li>
+            <li class="element"> <a href="<?= $requestUrl ?>/products/register">S'enregistrer</i></a> </li>
+          </ul>
+        </li>
+
+      </div>
+      <div class="element-hide">
+        <li class="element under-list contacts">Nous contacter <i class="fas fa-sort-down"></i>
+          <ul class="second-list hide contact">
+            <li class="element"> <a href="#"><i class="fab fa-twitter-square"></i></a> </li>
+            <li class="element"> <a href="#"><i class="fab fa-facebook-square"></i></a> </li>
+            <li class="element"> <a href="#"><i class="fab fa-instagram"></i></a> </li>
+            <li class="element"> <a href="#"><i class="fab fa-linkedin"></i></a> </li>
+          </ul>
+        </li>
+      </div>
+      <li class="element"> <a href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a> </li>
+    </ul>
+  </nav>
+  <main>
     <?php include $this->viewData['template']; ?>
-</main>
+  </main>
+  <footer class="footer-main">
+    Copyright (c) 2020 Copyright Holder All Rights Reserved.
+  </footer>
+  <script type="text/javascript" src="<?= $wwwUrl ?>/js/main.js">
 
-<!-- Pied de page commun -->
-
-<!-- Code principal JavaScript de l'application -->
-
+  </script>
 
 </body>
 </html>
