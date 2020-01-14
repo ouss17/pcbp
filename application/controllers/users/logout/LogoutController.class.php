@@ -5,6 +5,12 @@ class LogoutController
     public function httpGetMethod(Http $http, array $queryFields)
     {
 
+      if(empty($_SESSION) == true) {
+        $http->redirectTo('/');
+      }
+      session_destroy();
+      $http->redirectTo('/users/login');
+
 
 
     }

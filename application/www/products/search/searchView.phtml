@@ -1,0 +1,9 @@
+<?php if (empty($products)){ ?>
+  <p>Il n'y pas encore de produits ici...</p>
+<?php }else{ ?>
+<ul>
+  <?php foreach ($products as $product): ?>
+    <li><a href="<?= $requestUrl ?>/products/product?id=<?= $product['Id'] ?>"><?= $product['Name'] ?></a></li>
+  <?php endforeach; ?>
+</ul>
+<?php } ?>

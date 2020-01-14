@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>PC Buying Pro</title>
+  <title>Computer Buying Pro</title>
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
@@ -20,30 +20,38 @@
 <body>
   <header class="header-main">
     <img class="header-logo" src="<?= $wwwUrl ?>/images/logo/logo_pc_buy.jpg" alt="logo">
-    <h1 class="title title-main">PC Buying Pro</h1>
+    <h1 class="title title-main">Computer Buying Pro</h1>
   </header>
   <nav class="nav-main">
     <ul class="nav-list">
       <li class="element"> <a href="<?= $requestUrl ?>/">Accueil</a> </li>
+        <li class="element under-list products"> <a href="<?= $requestUrl ?>/products">Nos produits</a></li>
       <div class="element-hide">
-        <li class="element under-list products">Nos produits<i class="fas fa-sort-down"></i>
-          <ul class="second-list hide product">
-            <li class="element"> <a href="<?= $requestUrl ?>/products/search?result=whole">PC complets</a> </li>
-            <li class="element"> <a href="<?= $requestUrl ?>/products/search?result=single">Nos pièces détachées</a> </li>
-          </ul>
-        </li>
-      </div>
-      <div class="element-hide">
-
-
-        <li class="element under-list users"><i class="fas fa-user"></i> <i class="fas fa-sort-down"></i>
-          <ul class="second-list hide user">
-            <li class="element"> <a href="<?= $requestUrl ?>/products/login">Se connecter <i class="fas fa-sign-in-alt"></i></a> </li>
-            <li class="element"> <a href="<?= $requestUrl ?>/products/register">S'enregistrer</i></a> </li>
-          </ul>
-        </li>
-
-      </div>
+        <?php if(array_key_exists('role', $_SESSION) === true){ ?>
+          <?php if($_SESSION["role"] === "user"){ ?>
+            <li class="element under-list users"><i class="fas fa-user"></i> <i class="fas fa-sort-down"></i>
+              <ul class="second-list hide user">
+              <?php }elseif($_SESSION["role"] === "premium"){ ?>
+                <li class="element under-list users"><i class="fas fa-user-tie"></i> <i class="fas fa-sort-down"></i>
+                  <ul class="second-list hide user">
+                  <?php }elseif($_SESSION["role"] === "admin"){ ?>
+                    <li class="element under-list users"><i class="fas fa-user-md"></i> <i class="fas fa-sort-down"></i>
+                      <ul class="second-list hide user">
+                        <li class="element"> <a href="<?= $requestUrl ?>/users/admin">Admin</a> </li>
+                      <?php } ?>
+                      <li class="element"> <a href="<?= $requestUrl ?>/users/profil">Profil</a> </li>
+                      <li class="element"> <a href="<?= $requestUrl ?>/users/logout">Se déconnecter <i class="fas fa-sign-out-alt"></i></a> </li>
+                    </ul>
+                  </li>
+                <?php }else{ ?>
+                  <li class="element under-list users"><i class="fas fa-user"></i> <i class="fas fa-sort-down"></i>
+                    <ul class="second-list hide user">
+                      <li class="element"> <a href="<?= $requestUrl ?>/users/login"><i class="fas fa-sign-in-alt"></i> Se connecter</a> </li>
+                      <li class="element"> <a href="<?= $requestUrl ?>/users/register">S'enregistrer</i></a> </li>
+                    </ul>
+                  </li>
+                 <?php } ?>
+              </div>
       <div class="element-hide">
         <li class="element under-list contacts">Nous contacter <i class="fas fa-sort-down"></i>
           <ul class="second-list hide contact">
@@ -57,7 +65,7 @@
       <li class="element"> <a href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a> </li>
     </ul>
   </nav>
-  <main>
+  <main class="container">
     <?php include $this->viewData['template']; ?>
   </main>
   <footer class="footer-main">

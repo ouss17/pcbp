@@ -1,2 +1,20 @@
-<h2 class="title title-page">Bienvenue sur PC Buying Pro !</h2>
-<p></p>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/home.css">
+
+<?php if (array_key_exists('role', $_SESSION)){ ?>
+  <h2 class="title title-page">Bienvenue, <?= $_SESSION['pseudo'] ?> !</h2>
+<?php }else{ ?>
+  <h2 class="title title-page">Bienvenue, cher client !</h2>
+  <p>Vous voila enfin! Nous vous attendions, vous étiez destinés à venir ici. Vous êtes à la recherche d'ordinateurs puissants, au design plaisant ou vous souhaitez monter le votre? Ce site est fait pour vous. Nous vous proposons les tout derniers modèles sortis et sommes mis à jour très fréquemment, la fiabilité et votre bien être sont nos mots clés, et si vous êtes premium, vous disposerez même de réduction sur certains produits ainsi qu'une réparation de vos appareils défecteux tant qu'ils sont sous garantit. N'hésitez pas à créer un compte ou jeter un oeil sur nos produits.</p>
+<?php } ?>
+<article class="options">
+  <figure class="choice">
+    <img src="<?= $wwwUrl ?>/images/pc/tour_complete.jpg" alt="">
+    <figcaption>Achetez nos tours déjà montées</figcaption>
+  </figure>
+  <figure class="choice">
+    <img src="<?= $wwwUrl ?>/images/pc/tour.jpg" alt="">
+      <figcaption>Achetez une tour unique en la montant avec les éléments de votre choix</figcaption>
+  </figure>
+</article>
+
+<p>dernières sorties</p>

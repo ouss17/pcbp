@@ -1,0 +1,9 @@
+<h2>Connectez vous !</h2>
+<?php if ($error != null) { ?>
+  <small><?= $error ?></small>
+<?php } ?>
+<form class="form-user" action="<?= $requestUrl ?>/users/login" method="post">
+  <input type="text" name="email" placeholder="Email / Pseudo">
+  <input type="password" name="password" placeholder="mot de passe">
+  <input type="submit" value="envoyer">
+</form>

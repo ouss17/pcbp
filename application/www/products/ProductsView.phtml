@@ -1,0 +1,9 @@
+<form class="search-form" action="<?= $requestUrl ?>/products/search" method="post">
+  <input type="search" name="search" placeholder="Vous avez une recherche précise?">
+  <button type="submit" name="button"><i class="fas fa-search"></i></button>
+</form>
+<ul>
+  <?php foreach ($productlines as $productline): ?>
+    <li> <a href="<?= $requestUrl ?>/products/search?result=<?= $productline['productLine']?>"><?= $productline['productLine']?></a></li>
+  <?php endforeach; ?>
+</ul>

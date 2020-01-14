@@ -20,6 +20,7 @@ h1.title.title-main {
 nav.nav-main {
   background-color: rgba(30,30,30,0.5);
   padding: 7px;
+  transition: all 500ms;
 }
 
 .nav-list a {
@@ -43,7 +44,6 @@ ul.nav-list {
 li.element {
   text-transform: uppercase;
   color: white;
-  transition: all 500ms;
 }
 
 li.element a:hover {
@@ -68,7 +68,11 @@ li.element.under-list {
 }
 
 .hide {
-  transform: scale(0);
+  transform: scaleY(0);
+}
+
+.unhide{
+  transform: scaleY(1);
 }
 
 
@@ -82,8 +86,8 @@ ul.second-list {
 }
 
 ul.second-list.contact {
-    line-height: 0;
-    width: 70%;
+  line-height: 0;
+  width: 70%;
 }
 
 ul.user {
@@ -94,6 +98,12 @@ ul.contact {
   display: flex;
   justify-content: space-between;
   font-size: 25px;
+}
+
+.container{
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-main{

@@ -1,0 +1,15 @@
+<h2>Enregistrez vous !</h2>
+<?php if ($error != null) { ?>
+  <small><?= $error ?></small>
+<?php } ?>
+<form class="form-user" action="<?= $requestUrl ?>/users/register" method="post">
+  <input type="text" name="firstname" placeholder="Votre prénom">
+  <input type="text" name="lastname" placeholder="Votre nom">
+  <input type="text" name="pseudo" placeholder="Votre pseudo">
+  <input type="text" name="email" placeholder="Votre email">
+  <input type="password" name="password" placeholder="Votre mot de passe">
+  <input type="text" name="address" placeholder="Adresse">
+  <input type="text" name="city" placeholder="Ville">
+  <input type="text" name="zip" placeholder="Code postal">
+  <input type="submit" value="envoyer">
+</form>
