@@ -3,9 +3,30 @@
   /* outline: 1px solid yellow; */
 }
 
+img{
+  object-fit: cover;
+  max-width: 100%;
+}
+
+@keyframes bounce {
+  0%{
+    top:-25px;
+  }
+  50%{
+    top:7px;
+  }
+  75%{
+    top:-12px;
+  }
+  100%{
+    top:0px;
+  }
+}
+
 body{
-  background-color: black;
+  background-color: #2c3338;
   color: white;
+  transition: all 500ms;
 }
 
 .header-main {
@@ -21,6 +42,9 @@ nav.nav-main {
   background-color: rgba(30,30,30,0.5);
   padding: 7px;
   transition: all 500ms;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-list a {
@@ -75,6 +99,11 @@ li.element.under-list {
   transform: scaleY(1);
 }
 
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+}
 
 ul.second-list {
   position: absolute;
@@ -83,6 +112,10 @@ ul.second-list {
   z-index: 50;
   background-color: rgb(15, 15, 15);
   line-height: 2;
+}
+
+h2.title.title-page {
+  text-align: center;
 }
 
 ul.second-list.contact {
@@ -111,4 +144,9 @@ ul.contact {
   padding: 20px;
   background-color: #0f0f0f;
   margin-top: 20px;
+}
+
+.top{
+  position: relative;
+  right: -300px;
 }

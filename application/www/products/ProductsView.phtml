@@ -1,9 +1,16 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/products.css">
+<h2 class="title title-page">Nos produits</h2>
 <form class="search-form" action="<?= $requestUrl ?>/products/search" method="post">
-  <input type="search" name="search" placeholder="Vous avez une recherche précise?">
+  <input type="search" name="search" placeholder="Vous avez une recherche précise?" >
   <button type="submit" name="button"><i class="fas fa-search"></i></button>
 </form>
-<ul>
+<div class="list-lines">
   <?php foreach ($productlines as $productline): ?>
-    <li> <a href="<?= $requestUrl ?>/products/search?result=<?= $productline['productLine']?>"><?= $productline['productLine']?></a></li>
+    <div class="line">
+      <a href="<?= $requestUrl ?>/products/search?result=<?= $productline['Title']?>">
+        <img src="<?= $wwwUrl ?>/images/pc/lines/<?= $productline['Image']?>" alt="">
+        <?= $productline['Title']?>
+      </a>
+    </div>
   <?php endforeach; ?>
-</ul>
+</div>

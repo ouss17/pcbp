@@ -1,9 +1,23 @@
-<h2>Connectez vous !</h2>
-<?php if ($error != null) { ?>
-  <small><?= $error ?></small>
-<?php } ?>
-<form class="form-user" action="<?= $requestUrl ?>/users/login" method="post">
-  <input type="text" name="email" placeholder="Email / Pseudo">
-  <input type="password" name="password" placeholder="mot de passe">
-  <input type="submit" value="envoyer">
-</form>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
+<div class="align">
+  <h2>Connectez vous !</h2>
+  <?php if ($error != null) { ?>
+    <small><?= $error ?></small>
+  <?php } ?>
+  <div class="grid">
+    <form class="form login" action="<?= $requestUrl ?>/users/login" method="post">
+      <div class="form__field">
+        <label for="login__username"><i class="fas fa-user-alt"></i><span class="hidden">Username</span></label>
+        <input id="login__username" type="text" name="email" class="form__input" placeholder="Email / Pseudo" required>
+      </div>
+
+      <div class="form__field">
+        <label for="login__password"><i class="fas fa-lock"></i> <span class="hidden">Password</span></label>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="mot de passe" required>
+      </div>
+      <div class="form__field">
+        <input type="submit" value="Let's go">
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,9 +1,53 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/search.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/button.css">
+<?php if (empty($_GET['result'])): ?>
+  <h3>Resultats pour <br>"<?= $_POST['search'] ?>"</br></h3>
+<?php elseif(empty($_POST['search'])):?>
+  <h3>Les <?= $line['Title'] ?></h3>
+<?php endif; ?>
+<?php if (empty($line) === false): ?>
+  <p><?= $line['Resume'] ?></p>
+<?php endif; ?>
+
 <?php if (empty($products)){ ?>
   <p>Il n'y pas encore de produits ici...</p>
 <?php }else{ ?>
-<ul>
-  <?php foreach ($products as $product): ?>
-    <li><a href="<?= $requestUrl ?>/products/product?id=<?= $product['Id'] ?>"><?= $product['Name'] ?></a></li>
-  <?php endforeach; ?>
-</ul>
+  <ul class="products">
+  <?php if(array_key_exists('role', $_SESSION) === false || $_SESSION['role'] === "user"): ?>
+    <?php foreach ($products as $product): ?>
+      <div class="product-list">
+      <a href="<?= $requestUrl ?>/products/product?id=<?= $product['Id'] ?>">
+        <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $product['Photo'] ?>" alt=""></li>
+        <li><?= $product['Name'] ?></li>
+      </a>
+      <li>
+        Prix de base = <strong><?= $product['SalePrice'] ?>€</strong>
+        <form>
+          <input type="number" name="quantity" id="product-<?=$product['Id']?>">
+          <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$product['Name']?>" data-price="<?=$product['SalePrice']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
+        </form>
+      </li>
+      </div>
+    <?php endforeach; ?>
+  <?php elseif ($_SESSION['role'] === "premium" || $_SESSION['role'] === "admin"): ?>
+      <?php foreach ($reducs as $reduc): ?>
+        <div class="product-list">
+          <a href="<?= $requestUrl ?>/products/product?id=<?= $reduc['Id'] ?>">
+            <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $reduc['Photo'] ?>" alt=""></li>
+            <li><?= $reduc['Name'] ?></li>
+            <li>Prix de base = <strong><?= $reduc['SalePrice'] ?>€</strong></li>
+          </a>
+          <li>
+            <?php if ($reduc['Reduction'] > 0): ?>
+              Reduction de <?=$reduc['Reduction']?>% : <strong><?= $reduc['reduc'] ?>€</strong>
+            <?php endif; ?>
+            <form>
+              <input type="number" name="quantity" id="product-<?=$reduc['Id']?>">
+              <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$reduc['Name']?>" data-price="<?=$reduc['SalePrice']?>" data-id="<?=$reduc['Id']?>"><p>Ajouter au panier</p></button>
+            </form>
+          </li>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </ul>
 <?php } ?>

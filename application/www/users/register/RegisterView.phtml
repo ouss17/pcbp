@@ -1,15 +1,46 @@
-<h2>Enregistrez vous !</h2>
-<?php if ($error != null) { ?>
-  <small><?= $error ?></small>
-<?php } ?>
-<form class="form-user" action="<?= $requestUrl ?>/users/register" method="post">
-  <input type="text" name="firstname" placeholder="Votre prénom">
-  <input type="text" name="lastname" placeholder="Votre nom">
-  <input type="text" name="pseudo" placeholder="Votre pseudo">
-  <input type="text" name="email" placeholder="Votre email">
-  <input type="password" name="password" placeholder="Votre mot de passe">
-  <input type="text" name="address" placeholder="Adresse">
-  <input type="text" name="city" placeholder="Ville">
-  <input type="text" name="zip" placeholder="Code postal">
-  <input type="submit" value="envoyer">
-</form>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
+<div class="align">
+  <h2>Enregistrez vous !</h2>
+  <?php if ($error != null) { ?>
+    <small><?= $error ?></small>
+  <?php } ?>
+  <div class="grid">
+    <form class="form login" action="<?= $requestUrl ?>/users/register" method="post">
+      <div class="form__field">
+        <label for="login__username"><i class="fas fa-user-alt"></i><span class="hidden">firstname</span></label>
+        <input type="text" id="login__username" class="form__input" name="firstname" placeholder="Votre prénom" required>
+      </div>
+      <div class="form__field">
+        <label for="login__lastname"><i class="fas fa-user-alt"></i><span class="hidden">lastname</span></label>
+        <input type="text" id="login__lastname" class="form__input" name="lastname" placeholder="Votre nom" required>
+      </div>
+      <div class="form__field">
+        <label for="login__pseudo"><i class="fas fa-user-alt"></i><span class="hidden">pseudo</span></label>
+        <input type="text" id="login__pseudo" class="form__input" name="pseudo" placeholder="Votre pseudo" required>
+      </div>
+      <div class="form__field">
+        <label for="login__email"><i class="fas fa-user-alt"></i><span class="hidden">email</span></label>
+        <input type="text" id="login__email" class="form__input" name="email" placeholder="Email" required>
+      </div>
+      <div class="form__field">
+        <label for="login__password"><i class="fas fa-lock"></i> <span class="hidden">Password</span></label>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="mot de passe" required>
+      </div>
+      <div class="form__field">
+        <label for="login__address"><i class="fas fa-home"></i><span class="hidden">adresse</span></label>
+        <input type="text" id="login__address" class="form__input" name="address" placeholder="Adresse" required>
+      </div>
+      <div class="form__field">
+        <label for="login__city"><i class="fas fa-city"></i><span class="hidden">city</span></label>
+        <input type="text" id="login__city" class="form__input" name="city" placeholder="City" required>
+      </div>
+      <div class="form__field">
+        <label for="login__zip"><span class="hidden">zip</span></label>
+        <input type="text" id="login__zip" class="form__input" name="zip" placeholder="Zip" required>
+      </div>
+      <div class="form__field">
+        <input type="submit" value="S'enregistrer">
+      </div>
+    </form>
+  </div>
+</div>

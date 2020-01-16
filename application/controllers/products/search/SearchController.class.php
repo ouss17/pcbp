@@ -7,8 +7,12 @@ class SearchController
 
       $productModel = new ProductModel();
       $products = $productModel->getAllProductsByProductLine($_GET['result']);
+      $line = $productModel->getOneLine($_GET['result']);
+      $reducs = $productModel->getAllReductions($_GET['result']);
       return[
-        'products'=>$products
+        'products'=>$products,
+        'reducs'=>$reducs,
+        'line'=>$line
       ];
 
     }
@@ -18,7 +22,12 @@ class SearchController
 
       $productModel = new ProductModel();
       $products = $productModel->getAllProductsBySearch($_POST);
+      if ($_POST['search'] === " ") {
+        $http->redirectTo('/products');
+      }
+      $reducs = $productModel->getAllReductions($_POST['search']);
       return[
+        'reducs'=>$reducs,
         'products'=>$products
       ];
 

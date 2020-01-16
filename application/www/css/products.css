@@ -1,0 +1,52 @@
+.line{
+  padding: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  border: 8px solid #0f0f0f;
+  margin-bottom: 20px;
+}
+
+
+.line a {
+  display: flex;
+  flex-direction: column;
+  transition: all 200ms;
+}
+
+.line a:hover{
+  color: red;
+}
+
+.list-lines {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  align-items: center;
+}
+
+img {
+  width: 324px;
+  margin-bottom: 20px;
+}
+
+form.search-form {
+  border: none;
+  margin-top: 30px;
+}
+
+[type="search"] {
+  border: none;
+  color: white;
+  background-color: #25282b;
+  padding: 10px 5px;
+  width: 15%;
+}
+
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  border: none;
+  color: white;
+  background-color: #25282b;
+  padding: 10px;
+}

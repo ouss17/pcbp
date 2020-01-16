@@ -77,6 +77,30 @@
       }
     }
 
+    public function updateUser($post)
+    {
+      $database = new Database();
+      $database->executeSql('UPDATE users
+      SET FirstName = ?, LastName = ?, Pseudo = ?, Address = ?, City = ?, Zip = ?
+      WHERE Id = ?',
+      [
+        $post['firstname'],
+        $post['lastname'],
+        $post['pseudo'],
+        $post['address'],
+        $post['city'],
+        $post['zip'],
+        $_SESSION['id']
+      ]);
+      $_SESSION['firstname'] = $post['firstname'];
+      $_SESSION['lastname'] = $post['lastname'];
+      $_SESSION['pseudo'] = $post['pseudo'];
+      $_SESSION['address'] = $post['address'];
+      $_SESSION['city'] = $post['city'];
+      $_SESSION['zip'] = $post['zip'];
+      $http = new Http();
+      $http->redirectTo('users/profil');
+    }
   }
 
 ?>

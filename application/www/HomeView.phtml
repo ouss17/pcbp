@@ -7,14 +7,30 @@
   <p>Vous voila enfin! Nous vous attendions, vous étiez destinés à venir ici. Vous êtes à la recherche d'ordinateurs puissants, au design plaisant ou vous souhaitez monter le votre? Ce site est fait pour vous. Nous vous proposons les tout derniers modèles sortis et sommes mis à jour très fréquemment, la fiabilité et votre bien être sont nos mots clés, et si vous êtes premium, vous disposerez même de réduction sur certains produits ainsi qu'une réparation de vos appareils défecteux tant qu'ils sont sous garantit. N'hésitez pas à créer un compte ou jeter un oeil sur nos produits.</p>
 <?php } ?>
 <article class="options">
+
   <figure class="choice">
     <img src="<?= $wwwUrl ?>/images/pc/tour_complete.jpg" alt="">
-    <figcaption>Achetez nos tours déjà montées</figcaption>
+    <figcaption>  <a href="<?= $requestUrl ?>/products/search?result=complet">Achetez nos tours déjà montées  </a></figcaption>
   </figure>
+
+
   <figure class="choice">
     <img src="<?= $wwwUrl ?>/images/pc/tour.jpg" alt="">
-      <figcaption>Achetez une tour unique en la montant avec les éléments de votre choix</figcaption>
+    <figcaption><a href="<?= $requestUrl ?>/products">Achetez une tour unique en la montant avec les éléments de votre choix! Pour cela, rendez-vous sur l'onglet <em>nos produits</em></a></figcaption>
   </figure>
-</article>
 
-<p>dernières sorties</p>
+</article>
+<div class="last">
+  <div id="slider" class="slider">
+    <ul>
+      <?php for ($i=count($products)-1; $i >= count($products)-3 ; $i--) { ?>
+        <li>
+          <a href="<?= $requestUrl ?>/products/product?id=<?= $products[$i]['Id'] ?>"><img src="<?= $wwwUrl ?>/images/pc/buy/<?=$products[$i]['Photo']?>" alt="">
+            <p><?=  substr($products[$i]['Name'],0,30) ?>...</p></a>
+          </li>
+        <?php } ?>
+      </ul>
+    </div>
+    <p class="lastp">dernières sorties</p>
+  </div>
+  <script type="text/javascript" src="<?= $wwwUrl ?>/js/home.js"></script>

@@ -1,0 +1,36 @@
+.product-list li:last-of-type {
+  margin-top: auto;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+}
+
+
+ul.products {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.product-list a li{
+  margin-top: 20px;
+}
+
+img{
+  width: 430px;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+}
+
+[type="number"] {
+  width: 30%;
+}

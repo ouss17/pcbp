@@ -1,19 +1,23 @@
 <?php
 
-  class HomeController
+class HomeController
+{
+  public function httpGetMethod(Http $http, array $queryFields)
   {
-      public function httpGetMethod(Http $http, array $queryFields)
-      {
+
+    $productModel = new productModel();
+    $products = $productModel->getAllProducts();
+    return[
+      'products'=>$products
+    ];
+
+  }
+
+  public function httpPostMethod(Http $http, array $formFields)
+  {
 
 
 
-      }
-
-      public function httpPostMethod(Http $http, array $formFields)
-      {
-
-
-        
-      }
+  }
 
 }

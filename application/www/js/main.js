@@ -18,3 +18,12 @@ $('.second-list').on('mouseleave', function(){
   $(this).removeClass('unhide');
   $(this).addClass('hide');
 });
+
+
+  $('.contacts').on('click', function() {
+    $('.contacts li').css('position','relative');
+    $('.contacts li').css('animation-duration','500ms');
+    $('.contacts li').css('animation-name','bounce');
+    $('.contacts li').css('animation-direction','alternate');
+    $('.contacts li').css('animation-iteration-count','1');
+  });

@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
+<div class="align">
+  <h2>Mes infos</h2>
+  <div class="grid">
+    <form class="form login" action="<?= $requestUrl ?>/users/profil" method="post">
+      <div class="form__field">
+        <label for="login__username"><i class="fas fa-user-alt"></i><span class="hidden">firstname</span></label>
+        <input type="text" id="login__username" class="form__input" name="firstname" placeholder="Votre prénom" value="<?= $_SESSION['firstname'] ?>">
+      </div>
+      <div class="form__field">
+        <label for="login__lastname"><i class="fas fa-user-alt"></i><span class="hidden">lastname</span></label>
+        <input type="text" id="login__lastname" class="form__input" name="lastname" placeholder="Votre nom" value="<?= $_SESSION['lastname'] ?>">
+      </div>
+      <div class="form__field">
+        <label for="login__pseudo"><i class="fas fa-user-alt"></i><span class="hidden">pseudo</span></label>
+        <input type="text" id="login__pseudo" class="form__input" name="pseudo" placeholder="Votre pseudo" value="<?= $_SESSION['pseudo'] ?>">
+      </div>
+      <div class="form__field">
+        <label for="login__address"><i class="fas fa-home"></i><span class="hidden">adresse</span></label>
+        <input type="text" id="login__address" class="form__input" name="address" placeholder="Adresse" value="<?= $_SESSION['address'] ?>">
+      </div>
+      <div class="form__field">
+        <label for="login__city"><i class="fas fa-city"></i><span class="hidden">city</span></label>
+        <input type="text" id="login__city" class="form__input" name="city" placeholder="City" value="<?= $_SESSION['city'] ?>">
+      </div>
+      <div class="form__field">
+        <label for="login__zip"><span class="hidden">zip</span></label>
+        <input type="text" id="login__zip" class="form__input" name="zip" placeholder="Zip" value="<?= $_SESSION['zip'] ?>">
+      </div>
+      <div class="form__field">
+        <input type="submit" value="Changer mes informations">
+      </div>
+    </form>
+    <?php if ($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'user'){ ?>
+      <div class="form__field">
+        <a href="<?= $requestUrl ?>/profil/premium" class="update-role">Passer premium</a>
+      </div>
+    <?php }else if($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'premium'){ ?>
+      <div class="form__field">
+        <a href="<?= $requestUrl ?>/profil/user" class="update-role">Annuler les privilèges premium</a>
+      </div>
+    <?php } ?>
+  </div>
+</div>
