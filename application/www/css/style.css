@@ -3,6 +3,12 @@
   /* outline: 1px solid yellow; */
 }
 
+html{
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 1;
+}
+
 img{
   object-fit: cover;
   max-width: 100%;
@@ -68,14 +74,15 @@ ul.nav-list {
 li.element {
   text-transform: uppercase;
   color: white;
+  transition: all 500ms ;
 }
 
 li.element a:hover {
-  color: #de4000;
+  color: red;
 }
 
 .element:hover {
-  color: #de4000;
+  color: red;
 }
 
 ul.nav-list li.element:last-of-type {
@@ -92,11 +99,11 @@ li.element.under-list {
 }
 
 .hide {
-  transform: scaleY(0);
+  transform: scale(0);
 }
 
 .unhide{
-  transform: scaleY(1);
+  transform: scale(1);
 }
 
 a {
@@ -112,6 +119,7 @@ ul.second-list {
   z-index: 50;
   background-color: rgb(15, 15, 15);
   line-height: 2;
+  transition: all 500ms
 }
 
 h2.title.title-page {
@@ -149,4 +157,48 @@ ul.contact {
 .top{
   position: relative;
   right: -300px;
+}
+
+
+p#closePopUpError,
+#closePopUpProduct {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  cursor: pointer;
+}
+
+div#errorPopUp,
+#productPopUp {
+  position: fixed;
+  top: 10px;
+  z-index: 100;
+  left: 450px;
+  background-color: black;
+  padding: 10px 140px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+div#errorPopUp img,
+#productPopUp img{
+  width: 760px;
+}
+
+div#errorPopUp button,
+#productPopUp button{
+  align-self: center;
+  margin-top: 20px;
+}
+
+em#itemBasket {
+    position: absolute;
+    top: 25px;
+    right: 46px;
+    color: black;
+}
+
+i.fas.fa-shopping-cart {
+    font-size: 1.9rem;
 }

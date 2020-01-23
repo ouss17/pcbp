@@ -1,0 +1,25 @@
+th {
+  padding: 30px;
+}
+
+table.basketTable {
+  margin: 50px auto;
+  line-height: 3;
+  border-collapse: collapse;
+}
+
+.recap {
+  text-align: center;
+}
+
+button.trash {
+  border: none;
+  background-color: #2c3338;
+}
+
+td {
+  padding: 10px;
+}
+td, th {
+  border: 8px solid #0f0f0f;
+}

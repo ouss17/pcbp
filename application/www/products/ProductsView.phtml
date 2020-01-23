@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/products.css">
+
 <h2 class="title title-page">Nos produits</h2>
 <form class="search-form" action="<?= $requestUrl ?>/products/search" method="post">
   <input type="search" name="search" placeholder="Vous avez une recherche précise?" >
-  <button type="submit" name="button"><i class="fas fa-search"></i></button>
+  <button type="submit" class="submit" name="button"><i class="fas fa-search"></i></button>
 </form>
 <div class="list-lines">
   <?php foreach ($productlines as $productline): ?>

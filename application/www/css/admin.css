@@ -1,0 +1,62 @@
+.management {
+  border: 8px solid #0f0f0f;
+  padding: 10px;
+}
+
+.admin-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title-management a{
+  transition: all 500ms;
+}
+
+.title-management a:hover{
+  color: red;
+}
+
+table.admin-table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  color: white;
+}
+
+td, th {
+  padding: 30px;
+  border: 8px solid #0f0f0f;
+}
+
+button.trash.draw-outline.draw-outline--tandem {
+  background: none;
+}
+
+.admin-table img{
+  width: 200px;
+}
+
+.action{
+  display: flex;
+}
+
+.action a{
+  width: 50%;
+}
+
+.add {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.add-element{
+  transition: all 500ms;
+}
+
+.move{
+  display: none;
+}
+
+.add i{
+  cursor: pointer;
+}

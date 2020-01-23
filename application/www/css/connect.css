@@ -15,7 +15,7 @@
   --bodyFontWeight: 400;
   --bodyLineHeight: 1.5;
   --anchorColor: #eee;
---formFieldMargin: 0.875rem;
+  --formFieldMargin: 0.875rem;
   --loginBorderRadus: 0.25rem;
   --loginColor: #eee;
 
@@ -101,8 +101,9 @@ input {
   transition: background-color 0.3s;
 }
 
-input[type='submit'] {
+button {
   cursor: pointer;
+  margin: auto;
 }
 
 .form {
@@ -130,8 +131,7 @@ input[type='submit'] {
 
 .login label,
 .login input[type='text'],
-.login input[type='password'],
-.login input[type='submit'] {
+.login input[type='password']{
   border-radius: var(--loginBorderRadus);
   padding: 1rem;
 }
@@ -158,26 +158,19 @@ input[type='submit'] {
   background-color: var(--loginInputHoverBackgroundColor);
 }
 
-.login input[type='submit'] {
-  background-color: var(--loginSubmitBackgroundColor);
-  color: var(--loginSubmitColor);
-  font-weight: 700;
-  text-transform: uppercase;
+.form__file{
+  display: flex;
+  align-items: center;
+  margin: var(--formFieldMargin);
 }
 
-.login input[type='submit']:focus,
-.login input[type='submit']:hover {
-  background-color: var(--loginSubmitHoverBackgroundColor);
+textarea#login__email {
+  background-color: #3b4148;
+  border: none;
+  color: white;
 }
 
-
-a.update-role:hover {
-    text-decoration: none;
-    background-color: rgb(145,0,0);
-}
-a.update-role {
-    margin-top: 20px;
-    background-color: rgba(145, 0, 0, 0.69);
-    padding: 20px 50px;
-    border-radius: 6px;
+.textarea label{
+  display: flex;
+  align-items: center;
 }

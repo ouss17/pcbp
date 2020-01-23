@@ -17,7 +17,7 @@ define('CFG_PATH', realpath(ROOT_PATH.'/application/config'));
  */
 define('WWW_PATH', realpath(ROOT_PATH.'/application/www'));
 
-
+require_once 'vendor/autoload.php';
 require_once 'library/Configuration.class.php';
 require_once 'library/Database.class.php';
 require_once 'library/FlashBag.class.php';

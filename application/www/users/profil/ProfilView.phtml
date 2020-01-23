@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
+
 <div class="align">
   <h2>Mes infos</h2>
   <div class="grid">
@@ -28,16 +29,16 @@
         <input type="text" id="login__zip" class="form__input" name="zip" placeholder="Zip" value="<?= $_SESSION['zip'] ?>">
       </div>
       <div class="form__field">
-        <input type="submit" value="Changer mes informations">
+        <button class="cross-fade" type="submit">Changer mes informations</button>
       </div>
     </form>
     <?php if ($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'user'){ ?>
       <div class="form__field">
-        <a href="<?= $requestUrl ?>/profil/premium" class="update-role">Passer premium</a>
+        <a href="<?= $requestUrl ?>/profil/premium" class="update-role"><button type="button" name="button" class="btn btn-back">Passer premium</button></a>
       </div>
     <?php }else if($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'premium'){ ?>
       <div class="form__field">
-        <a href="<?= $requestUrl ?>/profil/user" class="update-role">Annuler les privilèges premium</a>
+        <a href="<?= $requestUrl ?>/profil/user" class="update-role"><button type="button" name="button" class="btn btn-back">Annuler les privilèges premium</button></a>
       </div>
     <?php } ?>
   </div>

@@ -101,6 +101,58 @@
       $http = new Http();
       $http->redirectTo('users/profil');
     }
+
+    public function getAllUsers()
+    {
+      $database = new Database();
+      $sql = 'SELECT *
+      FROM users';
+      return $database->query($sql, []);
+    }
+
+    public function getOneUser($get)
+    {
+      $database = new Database();
+      $sql = 'SELECT *
+      FROM users
+      WHERE Id = ?';
+      return $database->queryOne($sql, [$get]);
+    }
+
+    public function deleteUser($get)
+    {
+      $database = new Database();
+      $database->executeSql('DELETE
+      FROM users
+      WHERE Id = ?',
+      [$get]);
+      $http = new Http();
+      $http->redirectTo('users/admin/account');
+    }
+
+    public function updateRole($post)
+    {
+      if((array_key_exists('role', $_SESSION) === false) || $_SESSION['role'] === "user" || $_SESSION['role'] === "premium") {
+        $http->redirectTo('users/login');
+      }else{
+        if ($post['valeur'] == 'premium' || $post['valeur'] == 'user') {
+          $database = new Database();
+          $database->executeSql(
+          'UPDATE users
+          SET Role = ?
+          WHERE Id= ?',
+          [
+          ($post['valeur']),
+          ($post['id'])
+          ]);
+          $http = new Http();
+          $http->redirectTo('users/admin/account');
+        }else if($post['valeur'] == 'admin'){
+          $http = new Http();
+          $http->redirectTo('users/admin/account');
+        }
+      }
+    }
   }
 
 ?>

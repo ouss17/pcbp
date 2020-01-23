@@ -7,8 +7,10 @@ class ProductController
 
       $productModel = new ProductModel();
       $product = $productModel->getOneProduct($_GET['id']);
+      $reduc = $productModel->getOneReduction($_GET['id']);
       return[
-        'product'=>$product
+        'product'=>$product,
+        'reduc'=>$reduc
       ];
 
     }

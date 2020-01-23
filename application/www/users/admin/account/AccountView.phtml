@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/admin.css">
+
+<a href="<?= $requestUrl ?>/users/admin"><button type="button" name="button" class="btn btn-back">Retour</button></a>
+<h2 class="title title-page">Utilisateurs</h2>
+<table class='admin-table'>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <?php foreach ($users as $user): ?>
+        <?php if($user['Email'] !== $_SESSION['email']) { ?>
+          <tr>
+        <td><a href="<?= $requestUrl ?>/users/admin/account/user?id=<?= $user['Id'] ?>"><?= $user['LastName'] ?></a></td>
+        <td><a href="<?= $requestUrl ?>/users/admin/account/user?id=<?= $user['Id'] ?>"><?= $user['FirstName'] ?></a></td>
+        <td>
+          <select class="role" name="role" data-id="<?=$user['Id']?>">
+            <?php if ($user['Role'] === 'user'): ?>
+              <option value="<?= $user['Role'] ?>" selected><?= $user['Role'] ?></option>
+              <option value="premium">premium</option>
+            <?php elseif ($user['Role'] === 'premium'): ?>
+              <option value="<?= $user['Role'] ?>" selected><?= $user['Role'] ?></option>
+              <option value="user">user</option>
+            <?php endif; ?>
+          </select>
+        </td>
+        <td><a href="<?= $requestUrl ?>/users/admin/account/delete?id=<?=$user['Id']?>"><button class="trash draw-outline draw-outline--tandem"><i class="fas fa-trash-alt"></i></button></a></td>
+      </tr>
+      <?php } ?>
+      <?php endforeach; ?>
+  </tbody>
+</table>
+<script src="<?= $wwwUrl ?>/js/admin.js"></script>

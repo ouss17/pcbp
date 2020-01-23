@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/basket.css">
+
+<h2 class="title title-page">Votre panier !</h2>
+<div class="recap">
+<h3>Récapitulatif de la commande</h3>
+<div id="displayBasket">
+	<table class="basketTable">
+		<thead>
+			<th>Quantité</th>
+			<th>Nom</th>
+			<th class="desktop">Prix Unitaire</th>
+			<th>Prix Total</th>
+			<th>Action</th>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>Prix Total</td>
+				<td></td>
+				<td class="desktop"></td>
+				<td><span id="totalPrice"></span> €</td>
+				<td></td>
+			</tr>
+		</tfoot>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+<?php if(array_key_exists('role', $_SESSION)) { ?>
+<form class="p-form" action="<?=$requestUrl ?>/payment" method="POST">
+	<input type="hidden" name="basketItem" id="basketItem" value="">
+	<button type="submit" class="cross-fade"> Payer ma commande</button>
+</form>
+</div>
+<?php }?>

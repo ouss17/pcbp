@@ -1,1 +1,38 @@
-<p><?= $product['Name'] ?></p>
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/products.css">
+
+<a href="<?= $requestUrl ?>/products/search?result=<?= $product['ProductLine'] ?>"><button type="button" name="button" class="btn btn-back">Retour</button></a>
+
+
+<h2 class="title title-page"><?= $product['Name'] ?></h2>
+<?php if(array_key_exists('role', $_SESSION) === false || $_SESSION['role'] === "user"): ?>
+    <div class="product-detail">
+      <ul class="product">
+      <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $product['Photo'] ?>" alt=""></li>
+      <li><?= $product['Description'] ?></li>
+    <li>
+      Prix de base = <strong><?= $product['SalePrice'] ?>€</strong>
+      <form class="basket-form">
+        <input type="number" name="quantity" id="product-<?=$product['Id']?>">
+        <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$product['Name']?>" data-price="<?=$product['SalePrice']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
+      </form>
+    </li>
+  </ul>
+    </div>
+<?php elseif ($_SESSION['role'] === "premium" || $_SESSION['role'] === "admin"): ?>
+      <div class="product-detail">
+        <ul class="product">
+          <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $reduc['Photo'] ?>" alt=""></li>
+          <li><?= $reduc['Description'] ?></li>
+          <?php if ($reduc['Reduction'] <= 0) {?>
+          <li>Prix de base = <strong><?= $reduc['SalePrice'] ?>€</strong></li>
+        <?php }elseif ($reduc['Reduction'] > 0) { ?>
+            <li>Prix de base = <span class="over"><strong><?= $reduc['SalePrice'] ?>€</strong></span></li>
+              <li>Reduction de <?=$reduc['Reduction']?>% : <strong><?= number_format($reduc['reduc'],2) ?>€</strong></li>
+          <?php } ?>
+          <form class="basket-form">
+            <input type="number" name="quantity" id="product-<?=$reduc['Id']?>">
+            <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$reduc['Name']?>" data-price="<?=$reduc['reduc']?>" data-id="<?=$reduc['Id']?>"><p>Ajouter au panier</p></button>
+          </form>
+      </div>
+    </ul>
+  <?php endif; ?>

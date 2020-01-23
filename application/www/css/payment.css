@@ -1,0 +1,45 @@
+h3{
+  margin-bottom: 20px;
+}
+
+p{
+  margin-bottom: 10px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+p span{
+  color: white;
+  font-weight: bold;
+}
+
+.ElementsApp, .ElementsApp .InputElement{
+  color: white;
+}
+
+form#payment-form {
+  width: 50%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+div#card-element {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+}
+
+div#card-errors {
+  color: red;
+}
+
+button.cross-fade {
+  align-self: center;
+  margin-top: 20px;
+}

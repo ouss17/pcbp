@@ -22,10 +22,10 @@ class SearchController
 
       $productModel = new ProductModel();
       $products = $productModel->getAllProductsBySearch($_POST);
+      $reducs = $productModel->getAllReductionsBySearch($_POST);
       if ($_POST['search'] === " ") {
         $http->redirectTo('/products');
       }
-      $reducs = $productModel->getAllReductions($_POST['search']);
       return[
         'reducs'=>$reducs,
         'products'=>$products

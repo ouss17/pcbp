@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Computer Buying Pro</title>
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/button.css">
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -15,11 +16,12 @@
   crossorigin="anonymous"></script>
 
   <!-- JavaScript de l'application -->
+  <script src="<?= $wwwUrl ?>/js/classes/Basket.class.js"></script>
   <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
 </head>
 <body id="top">
   <header class="header-main">
-    <img class="header-logo" src="<?= $wwwUrl ?>/images/logo/logo_pc_buy.jpg" alt="logo">
+    <img class="header-logo" src="<?= $wwwUrl ?>/images/logo/logo.png" alt="logo">
     <h1 class="title title-main">Computer Buying Pro</h1>
   </header>
   <nav class="nav-main">
@@ -62,17 +64,34 @@
           </ul>
         </li>
       </div>
-      <li class="element"> <a href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a> </li>
+      <li class="element">
+        <a href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a>
+        <em class="hide" id="itemBasket"></em>
+     </li>
     </ul>
   </nav>
   <main class="container">
     <?php include $this->viewData['template']; ?>
+    <div id="productPopUp" class="popUp hide">
+      <p id="closePopUpProduct" class="closePopUp">X</p>
+      <h4>Félicitation !</h4>
+      <p>Vous avez ajouté <em id="elementNumber"></em> produit(s) à votre panier</p>
+      <img src="<?= $wwwUrl ?>/images/logo/pop/yes.png" alt="addict">
+      <button type="button" class="closePopUp draw-outline draw-outline--tandem">Retour aux achats</button>
+    </div>
+
+    <div id="errorPopUp" class="popUp hide">
+      <p id="closePopUpError" class="closePopUp">X</p>
+      <h4>PROBLEME!</h4>
+      <p>Vous ne pouvez pas rajouter 0 quantité !!</p>
+      <img src="<?= $wwwUrl ?>/images/logo/pop/no.png" alt="addict">
+      <button type="button" class="closePopUp draw-outline draw-outline--tandem">Retour aux achats</button>
+    </div>
   </main>
   <footer class="footer-main">
     Copyright (c) 2020 Copyright Holder All Rights Reserved.
     <a href="#top" class="top"><i class="fas fa-arrow-alt-circle-up"></i></a>
   </footer>
   <script type="text/javascript" src="<?= $wwwUrl ?>/js/main.js"></script>
-
 </body>
 </html>
