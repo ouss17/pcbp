@@ -283,6 +283,7 @@ em#itemBasket {
 
   #passagePopUp{
     top: 190px;
+    left: 70px;
   }
 
 }
@@ -325,6 +326,10 @@ em#itemBasket {
   #passagePopUp {
     top: 30px;
     left: 172px;
+  }
+
+  #passagePopUp {
+    left: -8px;
   }
 
   div#errorPopUp img,
