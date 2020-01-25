@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/admin.css">
 
 <div class="align">
   <h2>Mes infos</h2>
@@ -34,12 +35,45 @@
     </form>
     <?php if ($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'user'){ ?>
       <div class="form__field">
-        <a href="<?= $requestUrl ?>/profil/premium" class="update-role"><button type="button" name="button" class="btn btn-back">Passer premium</button></a>
+        <button type="button" name="button" class="btn btn-back passage">Passer premium</button>
+            <div id="passagePopUp" class="popUp hide">
+              <h4>Etes vous sûr?!</h4>
+              <p>Vous voulez passer premium et bénéficier de réductions sur certains produits? Pour cela, vous allez être déconnecté, voulez vous continuer?</p>
+              <a href="<?= $requestUrl ?>/users/profil/premium" class="update-role"><button type="button" class="closePopUp draw-outline draw-outline--tandem">Confirmer</button></a>
+              <button type="button" class="closePopUp draw-outline draw-outline--tandem annule">Annuler</button>
+            </div>
       </div>
     <?php }else if($_SESSION['role'] !== 'admin' && $_SESSION['role'] === 'premium'){ ?>
       <div class="form__field">
-        <a href="<?= $requestUrl ?>/profil/user" class="update-role"><button type="button" name="button" class="btn btn-back">Annuler les privilèges premium</button></a>
+        <button type="button" name="button" class="btn btn-back passage" style="max-width:290px">Annuler les privilèges premium</button>
+        <div id="passagePopUp" class="popUp hide">
+          <h4>Etes vous sûr?!</h4>
+          <p>Vous allez perdre vos privilèges de premium. Pour cela vous allez être déconnecté, voulez vous continuer?</p>
+          <a href="<?= $requestUrl ?>/users/profil/user" class="update-role"><button type="button" class="closePopUp draw-outline draw-outline--tandem">Confirmer</button></a>
+          <button type="button" class="closePopUp draw-outline draw-outline--tandem annule">Annuler</button>
+        </div>
       </div>
     <?php } ?>
   </div>
 </div>
+<hr>
+<h4>Récapitulatif des commandes</h4>
+<p>Cliquez sur un numéro de commande pour voir le détail !</p>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Numéro de commande</th>
+      <th>Prix total</th>
+      <th>Date de la commande</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($orders as $order): ?>
+      <tr>
+        <td><a href="<?= $requestUrl ?>/users/profil/detail?id=<?= $order['Id'] ?>"><?= $order['Id'] ?></a></td>
+        <td><?= $order['TotalAmount'] ?>€</td>
+        <td><?=date('d/m/Y', strtotime($order['CreationTimestamp']))?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>

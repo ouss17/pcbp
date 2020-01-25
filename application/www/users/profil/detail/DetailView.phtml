@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/admin.css">
+<a href="<?= $requestUrl ?>/users/profil"><button type="button" name="button" class="btn btn-back">Retour</button></a>
+<h3>Vous avez commandé: </h3>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Produit n°</th>
+      <th>Nom</th>
+      <th>Quantité</th>
+      <th>Prix unitaire</th>
+      <th>Prix total</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php foreach ($orderlines as $orderline): ?>
+    <tr>
+    <td><?=$orderline['Product_Id']?></td>
+    <td><?=$orderline['Name']?></td>
+    <td><?=$orderline['Quantity_Ordered']?></td>
+    <td><?=$orderline['PriceEach']?> €</td>
+    <td><?= number_format($orderline['Quantity_Ordered']*$orderline['PriceEach'], 2) ?> €</td>
+  </tr>
+<?php endforeach; ?>
+</tbody>
+</table>

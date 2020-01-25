@@ -10,7 +10,7 @@ class SuccessController
 
        $orderModel = new OrderModel();
        $orderModel->completeTimestamp();
-       // $msg = "<p>Une commande a été effectué<p><p>Email : ".$_SESSION['email']." num commande :".$_GET['tid'];
+       // $msg = "<p>Une commande a été effectué sur le site Computer Buying Pro<p><p>Email : ".$_SESSION['email']." num commande :".$_GET['tid'];
        //
        // mail('diarraousmane37@gmail.com', 'commande passé num : '.$_GET['tid'], $msg);
        //

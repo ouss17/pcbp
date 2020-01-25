@@ -1,6 +1,11 @@
+/****************************************************************************************/
+/************************************ADMIN PAGE******************************************/
+/****************************************************************************************/
+
 .management {
   border: 8px solid #0f0f0f;
   padding: 10px;
+  margin: 10px;
 }
 
 .admin-view {
@@ -16,6 +21,10 @@
 .title-management a:hover{
   color: red;
 }
+
+/****************************************************************************************/
+/************************************ADMIN TABLES*****************************************/
+/****************************************************************************************/
 
 table.admin-table {
   margin: 20px auto;
@@ -44,6 +53,37 @@ button.trash.draw-outline.draw-outline--tandem {
   width: 50%;
 }
 
+.td-image{
+  padding: 0;
+}
+
+/****************************************************************************************/
+/*************************************RESPONSIVE*****************************************/
+/****************************************************************************************/
+
+@media (max-width:768px) {
+
+  table.admin-table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width:425px) {
+
+  table.admin-table {
+    font-size: 8px;
+  }
+  td, th {
+    padding: 5px;
+    border: 8px solid #0f0f0f;
+  }
+}
+
+
+/****************************************************************************************/
+/************************************ADD ELEMENT*****************************************/
+/****************************************************************************************/
+
 .add {
   text-align: center;
   font-size: 2rem;
@@ -59,4 +99,83 @@ button.trash.draw-outline.draw-outline--tandem {
 
 .add i{
   cursor: pointer;
+}
+
+/****************************************************************************************/
+/****************************************FORM********************************************/
+/****************************************************************************************/
+
+#contact {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact #form {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form#contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact #form h2 {
+  font: 48px Georgia, serif;
+}
+#contact #form span {
+  display:block;
+  float:left;
+  width:100px;
+  padding-top:5px;
+  font: 14px/16px Georgia, serif;
+}
+#contact #form input {
+  float:left;
+  width:255px;
+  border:0px;
+  color:#F1F1F1;
+  padding:20px;
+  font: 11px/20px Verdana, Helvetica, sans-serif;
+  margin-bottom:10px;
+}
+#contact #form textarea {
+  float:left;
+  border:0px;
+  width:255px;
+  height:140px;
+  padding:20px;
+  font: 11px/20px Verdana, Helvetica, sans-serif;
+  color:#F1F1F1;
+  resize: none;
+}
+#contact #form input.name {
+  background-color:#0f0f0f;
+}
+#contact #form input.email {
+  background-color:#0f0f0f;
+}
+#contact #form input.captcha {
+  background-color:#0f0f0f;
+}
+#contact #form textarea.message {
+  background-color:#0f0f0f;
+}
+
+/****************************************************************************************/
+/****************************************FORM********************************************/
+/****************************************************************************************/
+
+@media (max-width:1024px) {
+  #contact #form {
+    width: 60%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width:375px) {
+  #contact #form {
+    width: 100%;
+  }
 }

@@ -33,49 +33,34 @@
 <div class="add">
   <i class="fas fa-plus-circle"></i>
   <div class="add-element move">
-    <div class="align">
-      <h2>Ajoutez un produit !</h2>
-      <div class="grid">
-        <form class="form login" action="<?= $requestUrl ?>/users/admin/products" method="post" enctype="multipart/form-data">
-          <div class="form__field">
-            <label for="login__username">name</label>
-            <input type="text" id="login__username" class="form__input" name="name" placeholder="Nom du produit" required>
-          </div>
-          <div class="form__file">
-            <label for="login__lastname">photo</label>
-            <input type="file" id="login__lastname" class="form__input" name="photo" type="file" required>
-          </div>
-          <div class="form__field">
-            <label for="login__email">type</label>
-            <input type="text" id="login__email" class="form__input" name="type" placeholder="Type" required>
-          </div>
-          <div class="form__field">
-            <label for="login__email">description</label>
-            <textarea rows="10" cols="80" id="login__email" class="form__input" name="description" placeholder="Description" required></textarea>
-          </div>
-          <div class="form__field">
-            <label for="login__email">quantité</label>
-            <input type="text" id="login__email" class="form__input" name="quantityInStock" placeholder="Quantité" required>
-          </div>
-          <div class="form__field">
-            <label for="login__pseudo">prix d'achat</label>
-            <input type="text" id="login__pseudo" class="form__input" name="buyprice" placeholder="Prix d'achat" required>
-          </div>
-          <div class="form__field">
-            <label for="login__email">prix de vente</label>
-            <input type="text" id="login__email" class="form__input" name="saleprice" placeholder="Prix de vente" required>
-          </div>
-          <div class="form__field">
-            <label for="login__password">reduction</label>
-            <input id="login__password" type="text" name="reduction" class="form__input" placeholder="reduction (en %)" required>
-          </div>
-          <div class="form__field">
-            <button class="cross-fade" type="submit">Ajouter</button>
-          </div>
-        </form>
+    <div id="contact">
+      <h2>Ajoutez une catégorie !</h2>
+      <div class="content">
+        <div id="form">
+          <form id="contactForm" action="<?= $requestUrl ?>/users/admin/products" method="post" enctype="multipart/form-data">
+            <span>Name</span>
+            <input type="text" name="name" class="name" placeholder="Nom de du produit" tabindex=1 required />
+            <span>Photo</span>
+            <input type="file" name="photo" class="email" tabindex=2 />
+            <span>Type</span>
+            <input type="text" name="type" class="captcha" placeholder="Type" tabindex=3 required />
+            <span>Description</span>
+            <textarea class="message" name="description" placeholder="Description" tabindex=4></textarea>
+            <span>Quantité</span>
+            <input type="text" name="quantityInStock" class="captcha" placeholder="Quantité" tabindex=5 required />
+            <span>Prix d'achat</span>
+            <input type="text" name="buyprice" class="captcha" placeholder="Prix d'achat" tabindex=6 required />
+            <span>Prix de vente</span>
+            <input type="text" name="saleprice" class="captcha" placeholder="Prix de vente" tabindex=7 required />
+            <span>Réduction</span>
+            <input type="text" name="reduction" class="captcha" placeholder="reduction (en %)" tabindex=8 required />
+            <div class="form__field">
+              <button class="btn btn-back" type="submit">Ajouter</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
 <script src="<?= $wwwUrl ?>/js/admin.js"></script>

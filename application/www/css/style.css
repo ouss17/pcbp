@@ -1,3 +1,7 @@
+/****************************************************************************************/
+/**********************************REGLES GENERALES***************************************/
+/****************************************************************************************/
+
 *{
   box-sizing: border-box;
   /* outline: 1px solid yellow; */
@@ -13,6 +17,10 @@ img{
   object-fit: cover;
   max-width: 100%;
 }
+
+/****************************************************************************************/
+/*************************************ANIMATIONS******************************************/
+/****************************************************************************************/
 
 @keyframes bounce {
   0%{
@@ -35,6 +43,10 @@ body{
   transition: all 500ms;
 }
 
+/****************************************************************************************/
+/***************************************HEADER********************************************/
+/****************************************************************************************/
+
 .header-main {
   text-align: center;
 }
@@ -43,6 +55,10 @@ h1.title.title-main {
   color: red;
   font-family: 'Dosis', sans-serif;
 }
+
+/****************************************************************************************/
+/****************************************NAV*********************************************/
+/****************************************************************************************/
 
 nav.nav-main {
   background-color: rgba(30,30,30,0.5);
@@ -59,6 +75,7 @@ nav.nav-main {
   text-transform: uppercase;
   transition: all 500ms;
 }
+
 
 ul {
   list-style-type: none;
@@ -97,21 +114,6 @@ ul.nav-list li.element:last-of-type {
 li.element.under-list {
   position: relative;
 }
-
-.hide {
-  transform: scale(0);
-}
-
-.unhide{
-  transform: scale(1);
-}
-
-a {
-  background-color: transparent;
-  text-decoration: none;
-  color: white;
-}
-
 ul.second-list {
   position: absolute;
   top: 40px;
@@ -141,11 +143,74 @@ ul.contact {
   font-size: 25px;
 }
 
+i.fas.fa-shopping-cart {
+  font-size: 1.9rem;
+}
+
+.hide {
+  transform: scale(0);
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+}
+
+/****************************************************************************************/
+/*************************************MOBILE NAV******************************************/
+/****************************************************************************************/
+
+.nav-bar-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255,255,255,0.1);
+  z-index: 10;
+  color: black;
+}
+
+.nav-bar-mobile i {
+  padding: 15px;
+  width: 100%;
+}
+
+.nav-bar-mobile .nav-column {
+  z-index: 10;
+  background-color: rgba(255,255,255,0.1);
+
+}
+
+.nav-bar-mobile .nav-column a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  transition: all 500ms;
+}
+
+.nav-bar-mobile .nav-column a:hover{
+  color: red;
+}
+
+.move-aside{
+  display: none;
+}
+
+/****************************************************************************************/
+/*************************************CONTAINER******************************************/
+/****************************************************************************************/
+
+
 .container{
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
+
+/****************************************************************************************/
+/***************************************FOOTER********************************************/
+/****************************************************************************************/
 
 .footer-main{
   text-align: center;
@@ -159,6 +224,9 @@ ul.contact {
   right: -300px;
 }
 
+/****************************************************************************************/
+/***************************************POP UP********************************************/
+/****************************************************************************************/
 
 p#closePopUpError,
 #closePopUpProduct {
@@ -169,7 +237,8 @@ p#closePopUpError,
 }
 
 div#errorPopUp,
-#productPopUp {
+#productPopUp,
+#passagePopUp {
   position: fixed;
   top: 10px;
   z-index: 100;
@@ -181,24 +250,100 @@ div#errorPopUp,
   flex-direction: column;
 }
 
+#passagePopUp{
+  top: 390px;
+}
+
 div#errorPopUp img,
 #productPopUp img{
   width: 760px;
 }
 
 div#errorPopUp button,
-#productPopUp button{
+#productPopUp button,
+#passagePopUp button{
   align-self: center;
   margin-top: 20px;
 }
 
 em#itemBasket {
-    position: absolute;
-    top: 25px;
-    right: 46px;
-    color: black;
+  position: absolute;
+  top: 25px;
+  right: 46px;
+  color: black;
 }
 
-i.fas.fa-shopping-cart {
-    font-size: 1.9rem;
+
+/****************************************************************************************/
+/*************************************RESPONSIVE******************************************/
+/****************************************************************************************/
+
+@media (max-width:1440px) {
+  #passagePopUp{
+    top: 190px;
+  }
+}
+
+@media (max-width:1024px) {
+
+  div#errorPopUp,
+  #productPopUp,{
+    left: 250px;
+  }
+
+  #passagePopUp{
+    left: -28px;
+  }
+
+}
+
+@media (max-width:1024px) {
+  .top{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+  }
+  ul.second-list.contact {
+    width: 120%;
+  }
+  .user{
+    width: 150%;
+  }
+  em#itemBasket {
+    top: 28px;
+  }
+  div#errorPopUp,
+  #productPopUp,
+  #passagePopUp {
+    top: 30px;
+    left: 172px;
+  }
+  div#errorPopUp img,
+  #productPopUp img{
+    width: 610px;
+  }
+}
+
+@media (max-width:800px) {
+  .nav-main{
+    display: none;
+  }
+
+  .nav-bar-mobile{
+    display: block;
+  }
+}
+
+@media (max-width: 425px) {
+  div#errorPopUp img, #productPopUp img {
+    width: 340px;
+  }
+  div#errorPopUp, #productPopUp, #passagePopUp {
+    top: 100px;
+    left: 40px;
+    padding: 4px 3px;
+  }
+  #passagePopUp{
+    left: 0;
+  }
 }

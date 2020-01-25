@@ -1,33 +1,22 @@
-@use postcss-cssnext;
-
+/****************************************************************************************/
+/****************************************ROOT*********************************************/
+/****************************************************************************************/
 
 :root {
-  --baseColor: #606468;
   --gridMaxWidth: 20rem;
   --gridWidth: 90%;
-  --htmlFontSize: 100%;
-  --iconFill: var(--baseColor);
-  --bodyBackgroundColor: #2c3338;
-  --bodyColor: var(--baseColor);
-  --bodyFontFamily: 'Open Sans';
-  --bodyFontFamilyFallback: sans-serif;
-  --bodyFontSize: 0.875rem;
-  --bodyFontWeight: 400;
-  --bodyLineHeight: 1.5;
   --anchorColor: #eee;
   --formFieldMargin: 0.875rem;
   --loginBorderRadus: 0.25rem;
   --loginColor: #eee;
-
   --loginInputBackgroundColor: #3b4148;
   --loginInputHoverBackgroundColor: #434a52;
-
   --loginLabelBackgroundColor: #363b41;
-
-  --loginSubmitBackgroundColor: #ea4c88;
-  --loginSubmitColor: #eee;
-  --loginSubmitHoverBackgroundColor: #d44179;
 }
+
+/****************************************************************************************/
+/***************************************FORM*********************************************/
+/****************************************************************************************/
 
 .align {
   align-items: center;
@@ -54,28 +43,6 @@
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-* {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: var(--htmlFontSize);
-  height: 100%;
-}
-
-body {
-  background-color: var(--bodyBackgroundColor);
-  color: var(--bodyColor);
-  font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
-  font-size: var(--bodyFontSize);
-  font-weight: var(--bodyFontWeight);
-  height: 100%;
-  line-height: var(--bodyLineHeight);
-  margin: 0;
-  min-height: 100vh;
 }
 
 a {

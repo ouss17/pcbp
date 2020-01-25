@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/connect.css">
 
 <a href="<?= $requestUrl ?>/users/admin"><button type="button" name="button" class="btn btn-back">Retour</button></a>
-<h2 class="title title-page">Produits</h2>
-<table class='admin-table'>
+<h2 class="title title-page">Catégories</h2>
+<table class='admin-table categories-table'>
   <thead>
     <tr>
       <th>Photo</th>
@@ -14,48 +14,42 @@
     </tr>
   </thead>
   <tbody>
-      <?php foreach ($lines as $line): ?>
-          <tr>
-        <td><img src="<?= $wwwUrl ?>/images/pc/lines/<?= $line['Image'] ?>" alt=""></td>
+    <?php foreach ($lines as $line): ?>
+      <tr>
+        <td class="td-image"><img src="<?= $wwwUrl ?>/images/pc/lines/<?= $line['Image'] ?>" alt=""></td>
         <td><?= $line['productLine'] ?></td>
         <td><?= $line['Title'] ?></td>
         <td><?= $line['Resume'] ?></td>
         <td>
           <div class="action">
-          <a href="<?= $requestUrl ?>/users/admin/categories/update?id=<?=$line['Id']?>"><button class="draw-outline draw-outline--tandem"><i class="fas fa-pen"></i></button></a>
-        </div>
+            <a href="<?= $requestUrl ?>/users/admin/categories/update?id=<?=$line['Id']?>"><button class="draw-outline draw-outline--tandem"><i class="fas fa-pen"></i></button></a>
+          </div>
         </td>
       </tr>
-      <?php endforeach; ?>
+    <?php endforeach; ?>
   </tbody>
 </table>
 <div class="add">
   <i class="fas fa-plus-circle"></i>
   <div class="add-element move">
-    <div class="align">
+    <div id="contact">
       <h2>Ajoutez une catégorie !</h2>
-      <div class="grid">
-        <form class="form login" action="<?= $requestUrl ?>/users/admin/categories" method="post" enctype="multipart/form-data">
-          <div class="form__field">
-            <label for="login__username">line</label>
-            <input type="text" id="login__username" class="form__input" name="productline" placeholder="Nom de la catégorie" required>
-          </div>
-          <div class="form__file">
-            <label for="login__lastname">image</label>
-            <input type="file" id="login__lastname" class="form__input" name="image" type="file">
-          </div>
-          <div class="form__field">
-            <label for="login__email">type</label>
-            <input type="text" id="login__email" class="form__input" name="type" placeholder="Type" required>
-          </div>
-          <div class="form__field">
-            <label for="login__email">description</label>
-            <textarea rows="10" cols="80" id="login__email" class="form__input" name="resume" placeholder="Description" required></textarea>
-          </div>
-          <div class="form__field">
-            <button class="cross-fade" type="submit">Ajouter</button>
-          </div>
-        </form>
+      <div class="content">
+        <div id="form">
+          <form id="contactForm" action="<?= $requestUrl ?>/users/admin/categories" method="post" enctype="multipart/form-data">
+            <span>Line</span>
+            <input type="text" name="productline" class="name" placeholder="Nom de la catégorie" tabindex=1 required />
+            <span>Image</span>
+            <input type="file" name="image" class="email" tabindex=2 />
+            <span>Type</span>
+            <input type="text" name="type" class="captcha" placeholder="Type" tabindex=3 required />
+            <span>Description</span>
+            <textarea class="message" name="resume" placeholder="Description" tabindex=4></textarea>
+            <div class="form__field">
+              <button class="btn btn-back" type="submit">Ajouter</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

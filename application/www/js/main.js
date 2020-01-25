@@ -2,27 +2,22 @@
 
 let basket = new Basket();
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////NAV///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
 $('.products').on('click', function(){
-  $('.product').removeClass('hide');
-  $('.product').addClass('unhide');
+  $('.product').toggleClass('hide');
 });
 
 $('.users').on('click', function(){
-  $('.user').removeClass('hide');
-  $('.user').addClass('unhide');
+  $('.user').toggleClass('hide');
 });
 
 $('.contacts').on('click', function(){
-  $('.contact').removeClass('hide');
-  $('.contact').addClass('unhide');
+  $('.contact').toggleClass('hide');
 });
-
-
-$('.second-list').on('mouseleave', function(){
-  $(this).removeClass('unhide');
-  $(this).addClass('hide');
-});
-
 
 $('.contacts').on('click', function() {
   $('.contacts li').css('position','relative');
@@ -34,6 +29,23 @@ $('.contacts').on('click', function() {
 $('.add i').on('click', function(){
   $('.add-element').toggleClass('move');
 });
+
+$('.passage').on('click', function(){
+  $('#passagePopUp').removeClass('hide');
+});
+
+$('.annule').on('click', function(){
+  $('#passagePopUp').addClass('hide');
+});
+
+$('#burger-button').on('click', function() {
+	$('.nav-column').toggleClass('move-aside');
+	console.log('ok');
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////BASKET/////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
 if(window.location.href.indexOf('/products') !== -1) {
 

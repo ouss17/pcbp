@@ -28,7 +28,7 @@ class ChargeController
             $totalAmount += ($order->safePrice*$order->quantity);
           }
         }
-        elseif($_SESSION['role']==='premium'){
+        elseif($_SESSION['role']==='premium' || $_SESSION['role']==='admin'){
           foreach($orders as $order) {
             $product = $productModel->getOneReduction($order->productId);
 

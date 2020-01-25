@@ -57,10 +57,10 @@
       <div class="element-hide">
         <li class="element under-list contacts">Nous contacter <i class="fas fa-sort-down"></i>
           <ul class="second-list hide contact">
-            <li class="element"> <a href="#"><i class="fab fa-twitter-square"></i></a> </li>
-            <li class="element"> <a href="#"><i class="fab fa-facebook-square"></i></a> </li>
-            <li class="element"> <a href="#"><i class="fab fa-instagram"></i></a> </li>
-            <li class="element"> <a href="#"><i class="fab fa-linkedin"></i></a> </li>
+            <li class="element"> <a href='https://www.twitter.com'><i class="fab fa-twitter-square"></i></a> </li>
+            <li class="element"> <a href='https://www.facebook.com'><i class="fab fa-facebook-square"></i></a> </li>
+            <li class="element"> <a href='https://www.instagram.com'><i class="fab fa-instagram"></i></a> </li>
+            <li class="element"> <a href='https://www.linkedin.com'><i class="fab fa-linkedin"></i></a> </li>
           </ul>
         </li>
       </div>
@@ -70,6 +70,49 @@
      </li>
     </ul>
   </nav>
+  <nav class="nav-bar-mobile">
+        <i class="fas fa-bars" id="burger-button"></i>
+        <div class="nav-column move-aside">
+          <a class='list-item' href='<?= $requestUrl ?>'>
+            <i class="fas fa-home"></i>
+          </a>
+          <a class='list-item' href='<?= $requestUrl ?>/products'>
+            <i class="fas fa-store"></i>
+          </a>
+          <?php if (array_key_exists('role', $_SESSION) === false){ ?>
+            <a class='list-item' href='<?= $requestUrl ?>/users/login'>
+              <i class="fas fa-user"></i>
+            </a>
+          <?php }else{ ?>
+            <?php if ($_SESSION['role'] === 'admin'){ ?>
+              <a class='list-item' href='<?= $requestUrl ?>/users/admin'>
+                <i class="fas fa-user-shield"></i>
+              </a>
+            <?php } ?>
+            <a class='list-item' href='<?= $requestUrl ?>/users/profil'>
+              <i class="fas fa-id-card"></i>
+            </a>
+            <a class='list-item' href='<?= $requestUrl ?>/basket'>
+              <i class="fas fa-shopping-basket"></i>
+            </a>
+            <a class='list-item' href='<?= $requestUrl ?>/users/logout'>
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+          <?php } ?>
+          <a class='list-item' href='https://www.instagram.com'>
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class='list-item' href='https://www.facebook.com'>
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class='list-item' href='https://twitter.com'>
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class='list-item' href='https://linkedin.com'>
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </nav>
   <main class="container">
     <?php include $this->viewData['template']; ?>
     <div id="productPopUp" class="popUp hide">

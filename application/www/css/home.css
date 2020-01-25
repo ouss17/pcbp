@@ -1,3 +1,7 @@
+/****************************************************************************************/
+/*************************************HOME PAGE******************************************/
+/****************************************************************************************/
+
 article.options {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +15,44 @@ figure.choice {
   text-align: center;
   padding: 20px;
 }
+
+.last {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 8px solid #0f0f0f;
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+p.lastp {
+  text-align: center;
+  padding: 10px 12.2%;
+  align-self: center;
+  background: linear-gradient(45deg, #a20f0f, #7b0f0f);
+}
+
+/****************************************************************************************/
+/**************************************RESPONSIVE****************************************/
+/****************************************************************************************/
+
+@media (max-width:1200px) {
+  .last{
+    display: none;
+  }
+}
+
+@media (max-width:1024px) {
+  figure.choice{
+    width: 100%;
+  }
+}
+
+/****************************************************************************************/
+/***************************************SLIDER********************************************/
+/****************************************************************************************/
 
 #slider {
   position: relative;
@@ -38,7 +80,7 @@ figure.choice {
   margin: 0;
   padding: 0;
   width: 500px;
-  height: 300px;
+  height: 460px;
   background: black;
   text-align: center;
 }
@@ -48,25 +90,18 @@ figure.choice {
   bottom: 42px
 }
 
-
-.last {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 8px solid #0f0f0f;
-  width: 33%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-p.lastp {
-  text-align: center;
-  padding: 10px 12.2%;
-  align-self: center;
-  background: linear-gradient(45deg, #a20f0f, #7b0f0f);
-}
-
 #slider a p{
   text-decoration: none;
   color: black;
+}
+
+/****************************************************************************************/
+/**********************************SLIDER RESPONSIVE*************************************/
+/****************************************************************************************/
+
+@media (max-width:1440px) {
+  #slider ul li {
+    width: 446px;
+    height: 410px;
+}
 }

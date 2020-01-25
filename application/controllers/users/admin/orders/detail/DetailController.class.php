@@ -8,6 +8,18 @@ class DetailController
     if(empty($_SESSION) == true || $_SESSION['role'] !== 'admin') {
       $http->redirectTo('/');
     }
+    $id= $_GET['orderId'];
+    $orderModel = new OrderModel() ;
+    $orderdetail = $orderModel->getAllOrderDetail($id);
+    $user = $orderModel->getUserAdminOrderInfo($id);
+    $order = $orderModel->getTotalAmount($id);
+    $totalAmount = $order['TotalAmount'];
+
+    return [
+                "user"=>$user,
+                'orderdetail'=>$orderdetail,
+                'totalAmount'=>$totalAmount
+            ];
 
 
 

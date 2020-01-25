@@ -153,6 +153,44 @@
         }
       }
     }
+
+    public function updateRoleToUser()
+    {
+      if((array_key_exists('role', $_SESSION) === false) || $_SESSION['role'] === "admin" || $_SESSION['role'] === "user") {
+        $http = new Http();
+        $http->redirectTo('users/login');
+      }else{
+          $database = new Database();
+          $database->executeSql(
+          'UPDATE users
+          SET Role = "user"
+          WHERE Id= ?',
+          [
+          ($_SESSION['id'])
+          ]);
+          $http = new Http();
+          $http->redirectTo('/users/logout');
+        }
+      }
+
+      public function updateRoleToPremium()
+      {
+        if((array_key_exists('role', $_SESSION) === false) || $_SESSION['role'] === "admin" || $_SESSION['role'] === "premium") {
+          $http = new Http();
+          $http->redirectTo('users/login');
+        }else{
+            $database = new Database();
+            $database->executeSql(
+            'UPDATE users
+            SET Role = "premium"
+            WHERE Id= ?',
+            [
+            ($_SESSION['id'])
+            ]);
+            $http = new Http();
+            $http->redirectTo('/users/logout');
+          }
+        }
   }
 
 ?>

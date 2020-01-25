@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/admin.css">
+<a href="<?= $requestUrl ?>/users/admin/orders"><button type="button" name="button" class="btn btn-back">Retour</button></a>
+
+<h2>Informations sur l'utilisateur</h2>
+<div>
+  <p><?= $user['FirstName'] ?> <?= $user['LastName'] ?></p>
+  <p><?= $user['Address'] ?> </p>
+  <p><?= $user['Zip'] ?> <?= $user['City'] ?></p>
+</div>
+
+<h2 class="title title-page">Détail de la commande</h2>
+<table class="admin-table">
+  <thead>
+    <th>Numéro de commande</th>
+    <th>Prix Unitaire</th>
+    <th>Quantité</th>
+  </thead>
+  <tfoot>
+    <td></td>
+    <td>Prix Total : </td>
+    <td><?=$totalAmount?> €</td>
+  </tfoot>
+  <tbody>
+    <?php foreach ($orderdetail as $order): ?>
+      <tr>
+        <td><?= $order['Name'] ?></td>
+        <td><?=number_format($order['PriceEach'], 2)?> €</td>
+        <td><?=$order['Quantity_ordered']?></td>
+      </tr>
+    <?php endforeach ?>
+  </tbody>
+</table>

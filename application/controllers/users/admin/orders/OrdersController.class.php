@@ -8,7 +8,11 @@ class OrdersController
     if(empty($_SESSION) == true || $_SESSION['role'] !== 'admin') {
       $http->redirectTo('/');
     }
-
+    $orderModel = new OrderModel();
+    $orders = $orderModel->getAllOrders();
+    return [
+      'orders'=>$orders
+    ];
 
 
   }

@@ -7,7 +7,11 @@ class ProfilController
       if (array_key_exists('role', $_SESSION) === false) {
         $http->redirectTo('/users/login');
       }
-
+      $orderModel = new OrderModel();
+      $orders = $orderModel->getOwnOrder();
+      return [
+        'orders'=>$orders
+      ];
 
     }
 
@@ -16,6 +20,12 @@ class ProfilController
 
       $userModel = new UserModel();
       $userModel->updateUser($_POST);
+      $orderModel = new OrderModel();
+      $orders = $orderModel->getOwnOrder();
+      return [
+        'orders'=>$orders
+      ];
+
 
     }
 }
