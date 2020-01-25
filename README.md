@@ -1,4 +1,4 @@
-# computer buying pro
+# Computer Buying Pro
 
 # Préparation:
 
