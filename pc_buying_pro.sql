@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 25 jan. 2020 à 12:07
+-- Généré le :  sam. 25 jan. 2020 à 12:26
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `City` varchar(60) COLLATE utf8_bin NOT NULL,
   `Zip` int(12) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `users`
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`Id`, `Email`, `Password`, `Role`, `FirstName`, `LastName`, `Pseudo`, `CreationTimeStamp`, `Address`, `City`, `Zip`) VALUES
 (1, 'admin@gmail.com', '$2y$11$a8db3af922184c3df2b85u2982EX1nZkIGG1eeXlHdofYiqO7NMB6', 'admin', 'Ousmane', 'Diarra', 'admin', '2020-01-13', '1 rue de l\'admin', 'paris', 75011),
 (2, 'user@gmail.com', '$2y$11$8489e8d8d7dacda5bf434u4b9GpyAVwydr6Q6E.H640Z3EhYxFm8G', 'user', 'Ousmane', 'DIARRA', 'user', '2020-01-13', '1 rue user', 'paris', 75011),
-(3, 'premium@gmail.com', '$2y$11$d07abcad749d5a4d8c9a3O2DW4LVuJitdzIGIYWm86ExKOgjgJlb6', 'premium', 'Ousmane', 'Diarra', 'premium', '2020-01-13', '1 rue premium', 'Paris', 75011);
+(5, 'pro@gmail.com', '$2y$11$27211953528347f32e180umsJ0EpJGu/JIJJiDD.PGC.U1/GkplLy', 'user', 'Ousmane', 'DIARRA', 'pro', '2020-01-25', '1 rue du premium', 'paris', 75011);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
