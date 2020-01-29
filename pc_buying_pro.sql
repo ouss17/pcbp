@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 25 jan. 2020 à 12:50
+-- Généré le :  mer. 29 jan. 2020 à 17:20
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,6 +21,39 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `pc_buying_pro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Comment` varchar(9999) NOT NULL,
+  `Author` varchar(555) NOT NULL,
+  `Title` varchar(60) NOT NULL,
+  `Product_Id` int(55) NOT NULL,
+  `CreationTimestamp` datetime NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `comment` (`Id`, `Comment`, `Author`, `Title`, `Product_Id`, `CreationTimestamp`) VALUES
+(1, 'test', 'user', 'Testé et approuvé', 7, '2020-01-28 21:34:49'),
+(3, 'Avec la réduction, j\'ai pu obtenir cette tour pour seulement 1529€ au lieu de 1700€, je vous conseille à tous et a toutes de passer pro pour pouvoir bénéficier de telles réductions!', 'pro', 'reduction tres bénéfique', 7, '2020-01-28 21:40:58'),
+(4, 'Nouveau produit rajouté récemment à la gamme des pc complets, j\'espère qu\'il sera à votre goût ^^.', 'admin', 'Nouveau produit', 7, '2020-01-28 23:11:34'),
+(5, 'Alors oui ce produit est très ancien, mais notre entreprise est encore trop jeune pour se procurer des éléments trop récents et vous les faire à des prix satisfaisants. Je vous demande donc d\'attendre encore un peu :)', 'admin', 'Ancienneté', 2, '2020-01-29 10:29:11'),
+(6, 'J\'ai oublié de préciser que de nouveaux produits arriveront très prochainement sur notre site. Soyez à l\'affut x)', 'admin', 'Précision', 2, '2020-01-29 10:31:53'),
+(7, 'J\'ai vu le commentaire d\'admin mais je ne peux pas m\'empêcher de me plaindre cette carte graphique est bien trop ancienne! Il faut la supprimer du marché immédiatement personne ne s\'en sert et cela devient péjoratif pour votre marché! C\'est un conseil d\'ami.', 'user', 'Trop ancien!!', 2, '2020-01-29 15:07:15'),
+(8, 'Je m\'excuse de ce commentaire un peu désobligeant, mais votre site possède de grands atouts. Bon courage pour la suite!', 'user', 'Mes excuses', 2, '2020-01-29 15:10:48'),
+(9, 'Ahh j\'aime voir ce genre de nouveauté. +1', 'user', 'Fraicheur', 5, '2020-01-29 15:12:17'),
+(10, 'Mais c\'est pour la bonne critique de ce site, vous aurez une bonne note, croyez-moi', 'user', 'Je parle beaucoup', 5, '2020-01-29 15:13:33'),
+(11, 'null null null!', 'user', 'J\'hallucine', 4, '2020-01-29 15:14:21');
 
 -- --------------------------------------------------------
 

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/admin.css">
 <link rel="stylesheet" href="<?= $wwwUrl ?>/css/products.css">
 
 <a href="<?= $requestUrl ?>/products/search?result=<?= $product['ProductLine'] ?>"><button type="button" name="button" class="btn btn-back">Retour</button></a>
@@ -5,34 +6,69 @@
 
 <h2 class="title title-page"><?= $product['Name'] ?></h2>
 <?php if(array_key_exists('role', $_SESSION) === false || $_SESSION['role'] === "user"): ?>
-    <div class="product-detail">
-      <ul class="product">
+  <div class="product-detail">
+    <ul class="product">
       <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $product['Photo'] ?>" alt=""></li>
       <li><?= $product['Description'] ?></li>
-    <li>
-      Prix de base = <strong><?= $product['SalePrice'] ?>€</strong>
-      <form class="basket-form">
-        <input type="number" name="quantity" id="product-<?=$product['Id']?>">
-        <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$product['Name']?>" data-price="<?=$product['SalePrice']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
-      </form>
-    </li>
-  </ul>
-    </div>
-<?php elseif ($_SESSION['role'] === "premium" || $_SESSION['role'] === "admin"): ?>
-      <div class="product-detail">
-        <ul class="product">
-          <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $reduc['Photo'] ?>" alt=""></li>
-          <li><?= $reduc['Description'] ?></li>
-          <?php if ($reduc['Reduction'] <= 0) {?>
-          <li>Prix de base = <strong><?= $reduc['SalePrice'] ?>€</strong></li>
-        <?php }elseif ($reduc['Reduction'] > 0) { ?>
-            <li>Prix de base = <span class="over"><strong><?= $reduc['SalePrice'] ?>€</strong></span></li>
-              <li>Reduction de <?=$reduc['Reduction']?>% : <strong><?= number_format($reduc['reduc'],2) ?>€</strong></li>
-          <?php } ?>
-          <form class="basket-form">
-            <input type="number" name="quantity" id="product-<?=$reduc['Id']?>">
-            <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$reduc['Name']?>" data-price="<?=$reduc['reduc']?>" data-id="<?=$reduc['Id']?>"><p>Ajouter au panier</p></button>
-          </form>
-      </div>
+      <li>
+        Prix de base = <strong><?= $product['SalePrice'] ?>€</strong>
+        <form class="basket-form">
+          <input type="number" name="quantity" id="product-<?=$product['Id']?>">
+          <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$product['Name']?>" data-price="<?=$product['SalePrice']?>" data-id="<?=$product['Id']?>"><p>Ajouter au panier</p></button>
+        </form>
+      </li>
     </ul>
+  </div>
+<?php elseif ($_SESSION['role'] === "premium" || $_SESSION['role'] === "admin"): ?>
+  <div class="product-detail">
+    <ul class="product">
+      <li><img src="<?= $wwwUrl ?>/images/pc/buy/<?= $reduc['Photo'] ?>" alt=""></li>
+      <li><?= $reduc['Description'] ?></li>
+      <?php if ($reduc['Reduction'] <= 0) {?>
+        <li>Prix de base = <strong><?= $reduc['SalePrice'] ?>€</strong></li>
+      <?php }elseif ($reduc['Reduction'] > 0) { ?>
+        <li>Prix de base = <span class="over"><strong><?= $reduc['SalePrice'] ?>€</strong></span></li>
+        <li>Reduction de <?=$reduc['Reduction']?>% : <strong><?= number_format($reduc['reduc'],2) ?>€</strong></li>
+      <?php } ?>
+      <form class="basket-form">
+        <input type="number" name="quantity" id="product-<?=$reduc['Id']?>">
+        <button class="addToBasket draw-outline draw-outline--tandem" data-name="<?=$reduc['Name']?>" data-price="<?=$reduc['reduc']?>" data-id="<?=$reduc['Id']?>"><p>Ajouter au panier</p></button>
+      </form>
+    </ul>
+  </div>
+<?php endif; ?>
+<div class="coms">
+  <h3 class="title title-comment">Espace commentaires !</h3>
+  <?php if (array_key_exists('role', $_SESSION) === true): ?>
+    <div id="contact">
+      <h4 class="title title-comment">Laissez un commentaire</h4>
+      <div class="content">
+        <div id="form">
+          <form id="contactForm" action="<?= $requestUrl ?>/products/product/comment" method="post">
+            <span>Titre</span>
+            <input type="text" name="title" class="name" placeholder="Titre" maxlength="60">
+            <span>Commentaire</span>
+            <textarea name="comment" class="message" rows="8" cols="80" placeholder="Commentaire" required></textarea>
+            <input type="hidden" name="product_id" value="<?= $product['Id'] ?>">
+            <div class="form__field">
+              <button class="btn btn-back" type="submit">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   <?php endif; ?>
+  <?php if (empty($comments) === false): ?>
+    <div class="com-list">
+      <?php foreach ($comments as $comment): ?>
+        <div class="com">
+          <h4 class="title title-author"><?= $comment['Author'] ?></h4>
+          <h4 class="title tilte-name"><strong><?= $comment['Title'] ?></strong></h4>
+          <p><?= $comment['Comment'] ?></p>
+          <p><em><?= $comment['CreationTimestamp'] ?></em></p>
+          <hr>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+<?php endif; ?>

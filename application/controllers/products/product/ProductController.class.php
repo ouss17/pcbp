@@ -6,9 +6,12 @@ class ProductController
     {
 
       $productModel = new ProductModel();
+      $commentModel = new CommentModel();
+      $comments = $commentModel->getAllCommentsByProduct($_GET['id']);
       $product = $productModel->getOneProduct($_GET['id']);
       $reduc = $productModel->getOneReduction($_GET['id']);
       return[
+        'comments'=>$comments,
         'product'=>$product,
         'reduc'=>$reduc
       ];
